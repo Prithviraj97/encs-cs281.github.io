@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS281: Lectures</title>
+    <style>
+        :root {
+            --primary-color: #1a73e8;
+            --secondary-color: #34a853;
+            --accent-color: #fbbc05;
+            --text-color: #202124;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 1rem 0;
+            text-align: center;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        
+        nav {
+            background-color: var(--white);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+            padding: 0.5rem 0;
+        }
+        
+        nav li {
+            margin: 0 1rem;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .section-heading {
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+        
+        .lecture-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .lecture-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .lecture-date {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+        
+        .lecture-resources {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .button:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .button.secondary {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            border: 1px solid var(--text-color);
+        }
+        
+        .button.secondary:hover {
+            background-color: var(--text-color);
+            color: var(--white);
+        }
+        
+        .week-container {
+            margin-bottom: 2rem;
+        }
+        
+        .week-header {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+        
+        details {
+            margin-bottom: 1rem;
+        }
+        
+        summary {
+            cursor: pointer;
+            font-weight: 500;
+            padding: 0.5rem;
+            background-color: var(--light-bg);
+            border-radius: 4px;
+        }
+        
+        details[open] summary {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+        
+        .details-content {
+            padding: 1rem;
+            background-color: var(--white);
+            border: 1px solid var(--light-bg);
+            border-top: none;
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>CS281: Intro to Computer Science II</h1>
+            <p>Lecture Materials - Spring 2025</p>
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="syllabus.html">Syllabus</a></li>
+            <li><a href="lectures.html">Lectures</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+        </ul>
+    </nav>
+    
+    <main class="container">
+        <h2 class="section-heading">Lecture Materials</h2>
+        <p>Below you'll find all lecture materials organized by week. Each lecture includes slides, notes, and any additional resources discussed in class.</p>
+        
+        <div class="week-container">
+            <h3 class="week-header">Week 1: Introduction and Review</h3>
+            
+            <div class="lecture-card">
+                <div class="lecture-header">
+                    <h4>Lecture 1: Course Introduction</h4>
+                    <span class="lecture-date">January 10, 2025</span>
+                </div>
+                <p>Overview of course objectives, expectations, and review of fundamental programming concepts from CS180.</p>
+                <div class="lecture-resources">
+                    <a href="#" class="button">Slides</a>
+                    <a href="#" class="button secondary">Notes</a>
+                    <a href="#" class="button secondary">Code Examples</a>
+                </div>
+            </div>
+            
+            <div class="lecture-card">
+                <div class="lecture-header">
+                    <h4>Lecture 2: C++ Basics Review</h4>
+                    <span class="lecture-date">January 12, 2025</span>
+                </div>
+                <p>Review of C++ syntax, data types, control structures, and functions. Introduction to development environment setup.</p>
+                <div class="lecture-resources">
+                    <a href="#" class="button">Slides</a>
+                    <a href="#" class="button secondary">Notes</a>
+                    <a href="#" class="button secondary">Code Examples</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="week-container">
+            <h3 class="week-header">Week 2: Arrays and Pointers</h3>
+            
+            <div class="lecture-card">
+                <div class="lecture-header">
+                    <h4>Lecture 3: Arrays and Memory Management</h4>
+                    <span class="lecture-date">January 17, 2025</span>
+                </div>
+                <p>Deep dive into arrays, memory allocation, and management in C++. Introduction to the stack and heap.</p>
+                <details>
+                    <summary>Additional Resources</summary>
+                    <div class="details-content">
+                        <ul>
+                            <li><a href="#">Memory Management in C++ Article</a></li>
+                            <li><a href="#">Stack vs Heap Visualization</a></li>
+                            <li><a href="#">Practice Problems Set 1</a></li>
+                        </ul>
+                    </div>
+                </details>
+                <div class="lecture-resources">
+                    <a href="#" class="button">Slides</a>
+                    <a href="#" class="button secondary">Notes</a>
+                    <a href="#" class="button secondary">Code Examples</a>
+                </div>
+            </div>
+            
+            <div class="lecture-card">
+                <div class="lecture-header">
+                    <h4>Lecture 4: Pointers and References</h4>
+                    <span class="lecture-date">January 19, 2025</span>
+                </div>
+                <p>Understanding pointers, pointer arithmetic, references, and their applications in C++.</p>
+                <div class="lecture-resources">
+                    <a href="#" class="button">Slides</a>
+                    <a href="#" class="button secondary">Notes</a>
+                    <a href="#" class="button secondary">Code Examples</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Continue with additional weeks as needed -->
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Department of Computer Science, [Your College/University Name]</p>
+            <p>Last updated: April 1, 2025</p>
+        </div>
+    </footer>
+</body>
+</html>
