@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS281: Student Projects</title>
+    <style>
+        :root {
+            --primary-color: #1a73e8;
+            --secondary-color: #34a853;
+            --accent-color: #fbbc05;
+            --text-color: #202124;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 1rem 0;
+            text-align: center;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        
+        nav {
+            background-color: var(--white);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+            padding: 0.5rem 0;
+        }
+        
+        nav li {
+            margin: 0 1rem;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .section-heading {
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+        
+        .project-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+        
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .project-info {
+            padding: 1.5rem;
+        }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        @media (min-width: 768px) {
+            .project-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .project-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        
+        .tag {
+            background-color: var(--light-bg);
+            color: var(--primary-color);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .button:hover {
+            background-color: var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>CS281: Intro to Computer Science II</h1>
+            <p>Student Projects - Spring 2025</p>
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="syllabus.html">Syllabus</a></li>
+            <li><a href="lectures.html">Lectures</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+        </ul>
+    </nav>
+    
+    <main class="container">
+        <h2 class="section-heading">Student Projects</h2>
+        <p>Below are the final projects completed by students in the Spring 2025 semester. These projects demonstrate the application of data structures, algorithms, and software engineering principles learned throughout the course.</p>
+        
+        <div class="project-grid">
+            <!-- Example Project 1 -->
+            <div class="project-card">
+                <img src="/api/placeholder/400/320" alt="Project 1 Screenshot">
+                <div class="project-info">
+                    <h3>Pathfinding Visualization</h3>
+                    <p><strong>Students:</strong> Jane Doe, John Smith</p>
+                    <p>An interactive visualization of various pathfinding algorithms including A*, Dijkstra's, and BFS, with customizable maps and obstacles.</p>
+                    <div class="project-tags">
+                        <span class="tag">Java</span>
+                        <span class="tag">Algorithms</span>
+                        <span class="tag">Data Structures</span>
+                    </div>
+                    <a href="#" class="button" style="margin-top: 1rem;">View Project</a>
+                </div>
+            </div>
+            
+            <!-- Example Project 2 -->
+            <div class="project-card">
+                <img src="/api/placeholder/400/320" alt="Project 2 Screenshot">
+                <div class="project-info">
+                    <h3>Library Management System</h3>
+                    <p><strong>Students:</strong> Alex Johnson, Sam Lee</p>
+                    <p>A comprehensive library management system with features for cataloging, searching, borrowing, and returning books, implementing efficient data structures.</p>
+                    <div class="project-tags">
+                        <span class="tag">C++</span>
+                        <span class="tag">OOP</span>
+                        <span class="tag">Binary Trees</span>
+                    </div>
+                    <a href="#" class="button" style="margin-top: 1rem;">View Project</a>
+                </div>
+            </div>
+            
+            <!-- Add more project cards as needed -->
+            <div class="project-card">
+                <img src="/api/placeholder/400/320" alt="Project 3 Screenshot">
+                <div class="project-info">
+                    <h3>Text Analysis Tool</h3>
+                    <p><strong>Students:</strong> Maria Garcia, David Chen</p>
+                    <p>A text analysis application that can process large text files to generate statistics, find patterns, and visualize word frequency using hash maps and tries.</p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Hash Maps</span>
+                        <span class="tag">Text Processing</span>
+                    </div>
+                    <a href="#" class="button" style="margin-top: 1rem;">View Project</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Department of Computer Science, [Your College/University Name]</p>
+            <p>Last updated: April 1, 2025</p>
+        </div>
+    </footer>
+</body>
+</html>
