@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS281: Course Resources</title>
+    <style>
+        :root {
+            --primary-color: #1a73e8;
+            --secondary-color: #34a853;
+            --accent-color: #fbbc05;
+            --text-color: #202124;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 1rem 0;
+            text-align: center;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        
+        nav {
+            background-color: var(--white);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            justify-content: center;
+            padding: 0.5rem 0;
+        }
+        
+        nav li {
+            margin: 0.5rem;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 500;
+            transition: color 0.3s;
+            display: block;
+            padding: 0.25rem 0.5rem;
+        }
+        
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .section-heading {
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+        
+        .resources-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        @media (min-width: 640px) {
+            .resources-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .resources-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .resource-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .resource-icon {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--light-bg);
+            font-size: 3rem;
+            color: var(--primary-color);
+        }
+        
+        .resource-info {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        
+        .resource-title {
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        .resource-description {
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+        
+        .button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            text-align: center;
+            margin-top: auto;
+        }
+        
+        .button:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .resource-category {
+            margin-bottom: 2rem;
+        }
+        
+        .resource-category h3 {
+            margin-bottom: 1rem;
+            padding-left: 0.5rem;
+            border-left: 4px solid var(--secondary-color);
+        }
+        
+        .search-container {
+            margin: 1rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .search-input {
+            flex: 1;
+            min-width: 200px;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .search-button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .search-button:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .container {
+                width: 95%;
+                padding: 0.5rem;
+            }
+            
+            .resource-icon {
+                height: 80px;
+                font-size: 2rem;
+            }
+            
+            .resource-info {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>CS281: Intro to Computer Science II</h1>
+            <p>Course Resources</p>
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="syllabus.html">Syllabus</a></li>
+            <li><a href="lectures.html">Lectures</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+        </ul>
+    </nav>
+    
+    <main class="container">
+        <h2 class="section-heading">Course Resources</h2>
+        <p>This page contains all the resources you'll need for successful completion of this course, including textbooks, software tools, reference materials, and additional learning resources.</p>
+        
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search resources...">
+            <button class="search-button">Search</button>
+        </div>
+        
+        <section class="resource-category">
+            <h3>Required Materials</h3>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-icon">📘</div>
+                    <div class="resource-info">
+                        <h4 class="resource-title">Textbook: Data Structures & Algorithms in C++</h4>
+                        <p class="resource-description">The required textbook for this course covers all essential topics we'll explore throughout the semester.</p>
+                        <a href="#" class="button">Purchase Options</a>
+                    </div>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon">💻</div>
+                    <div class="resource-info">
+                        <h4 class="resource-title">Development Environment</h4>
+                        <p class="resource-description">Instructions for setting up your C++ development environment, including compiler and IDE recommendations.</p>
+                        <a href="#" class="button">Setup Guide</a>
+                    </div>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon">🧪</div>
+                    <div class="resource-info">
+                        <h4 class="resource-title">Lab Materials</h4>
+                        <p class="resource-description">Access all materials needed for weekly lab sessions, including starter code and documentation.</p>
+                        <a href="#" class="button">Access Materials</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="resource-category">
+            <h3>Software & Tools</h3>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-icon">🔧</div>
+                    <div class="resource-info">
+                        <h4 class="resource-title">Visual Studio Code</h4>
+                        <p class="resource-description">Recommended IDE for course assignments with C++ extensions and configuration guide.</p>
+                        <a href="#" class="button">Installation Guide</a>
+                    </div>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon">🐙</div>
+                    <div class="resource-info">
+                        <h4 class="resource-title">Git & GitHub</h4>
+                        <p class="resource-description">Version control system and hosting service for your code, required for assignment submissions.</p>
+                        <a href="#" class="button">Setup Instructions</a>
+                    </div>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon">🧩</div>
+                    <div class="resource-info">
+                        <h4 class="resource-title">C++ Compiler</h4>
+                        <p class="resource-description">Guide for installing and configuring GCC/G++ or other C++ compilers on various operating systems.</p>
+                        <a href="#" class="button">Installation Guide</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="resource-category">
+            <h3>Additional Learning Resources</h3>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-icon">🎥</div>
+                    <div class="resource-info">
+                        <h4 class="resource-title">Video Tutorials</h4>
+                        <p class="resource-description">Curated playlist of video tutorials covering key course concepts and programming techniques.</p>
+                        <a href="#" class="button">Watch Tutorials</a>
+                    </div>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon">📝</div>
+                    <div class="resource-info">
+                        <h4 class="resource-title">Practice Problems</h4>
+                        <p class="resource-description">Additional practice problems with solutions to help reinforce concepts learned in class.</p>
+                        <a href="#" class="button">Access Problems</a>
+                    </div>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon">📊</div>
+                    <div class="resource-info">
+                        <h4 class="resource-title">Algorithm Visualizations</h4>
+                        <p class="resource-description">Interactive visualizations for common algorithms to help understand their operation.</p>
+                        <a href="#" class="button">View Visualizations</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="resource-category">
+            <h3>Reference Materials</h3>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-icon">📑</div>
+                    <div class="resource-info">
+                        <h4 class="resource-title">C++ Reference</h4>
+                        <p class="resource-description">Comprehensive reference for C++ language features, standard library, and best practices.</p>
+                        <a href="#" class="button">View Reference</a>
+                    </div>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon">📈</div>
+                    <div class="resource-info">
+                        <h4 class="resource-title">Algorithm Complexity Cheat Sheet</h4>
+                        <p class="resource-description">Quick reference for time and space complexity of common algorithms and data structures.</p>
+                        <a href="#" class="button">Download PDF</a>
+                    </div>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon">🧠</div>
+                    <div class="resource-info">
+                        <h4 class="resource-title">Problem-Solving Strategies</h4>
+                        <p class="resource-description">Guide to approaching and solving programming problems effectively.</p>
+                        <a href="#" class="button">Read Guide</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Department of Computer Science, [Your College/University Name]</p>
+            <p>Last updated: April 1, 2025</p>
+        </div>
+    </footer>
+
+    <script>
+        //simple search functionality
+        // This script filters the resource cards based on the search input
+        document.querySelector('.search-button').addEventListener('click', function() {
+            const searchTerm = document.querySelector('.search-input').value.toLowerCase();
+            const resourceCards = document.querySelectorAll('.resource-card');
+            
+            resourceCards.forEach(card => {
+                const title = card.querySelector('.resource-title').textContent.toLowerCase();
+                const description = card.querySelector('.resource-description').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
