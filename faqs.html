@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS281: Frequently Asked Questions</title>
+    <style>
+        :root {
+            --primary-color: #1a73e8;
+            --secondary-color: #34a853;
+            --accent-color: #fbbc05;
+            --text-color: #202124;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+            --border-color: #e0e0e0;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 1rem 0;
+            text-align: center;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        
+        nav {
+            background-color: var(--white);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            justify-content: center;
+            padding: 0.5rem 0;
+        }
+        
+        nav li {
+            margin: 0.5rem;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 500;
+            transition: color 0.3s;
+            display: block;
+            padding: 0.25rem 0.5rem;
+        }
+        
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .section-heading {
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+        
+        .search-container {
+            margin: 1rem 0 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .search-input {
+            flex: 1;
+            min-width: 200px;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .search-button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.75rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .search-button:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .faq-category {
+            margin-bottom: 2rem;
+        }
+        
+        .faq-category h3 {
+            margin-bottom: 1rem;
+            padding-left: 0.5rem;
+            border-left: 4px solid var(--secondary-color);
+        }
+        
+        .faq-item {
+            margin-bottom: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: var(--white);
+        }
+        
+        .faq-question {
+            padding: 1rem;
+            background-color: var(--white);
+            cursor: pointer;
+            font-weight: 500;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+        
+        .faq-question:hover {
+            background-color: var(--light-bg);
+        }
+        
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+        
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+            border-top: 0 solid var(--border-color);
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 1rem;
+            max-height: 500px;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .faq-category-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .category-tab {
+            padding: 0.5rem 1rem;
+            background-color: var(--light-bg);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .category-tab:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+        
+        .category-tab.active {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+        
+        .contact-container {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .contact-container h3 {
+            margin-bottom: 1rem;
+        }
+        
+        .button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            margin-top: 1rem;
+        }
+        
+        .button:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        /* Improved responsiveness */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .container {
+                width: 95%;
+                padding: 0.5rem;
+            }
+            
+            .faq-question {
+                padding: 0.75rem;
+                font-size: 0.95rem;
+            }
+            
+            .faq-answer {
+                font-size: 0.9rem;
+            }
+            
+            .category-tab {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>CS281: Intro to Computer Science II</h1>
+            <p>Frequently Asked Questions</p>
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="syllabus.html">Syllabus</a></li>
+            <li><a href="lectures.html">Lectures</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+        </ul>
+    </nav>
+    
+    <main class="container">
+        <h2 class="section-heading">Frequently Asked Questions</h2>
+        <p>Find answers to common questions about CS281. If you don't see your question here, feel free to contact the instructor or TAs.</p>
+        
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search questions...">
+            <button class="search-button">Search</button>
+        </div>
+        
+        <div class="faq-category-tabs">
+            <div class="category-tab active" data-category="all">All Questions</div>
+            <div class="category-tab" data-category="course">Course Structure</div>
+            <div class="category-tab" data-category="assignments">Assignments</div>
+            <div class="category-tab" data-category="exams">Exams</div>
+            <div class="category-tab" data-category="technical">Technical Issues</div>
+        </div>
+        
+        <section class="faq-category" data-category="course">
+            <h3>Course Structure</h3>
+            
+            <div class="faq-item">
+                <div class="faq-question">What programming language will we use in this course?</div>
+                <div class="faq-answer">
+                    <p>This course primarily uses C++ as the main programming language. We've chosen C++ because it provides a good balance between performance, features, and relevance to industry. However, the principles and algorithms you'll learn can be applied to many other programming languages.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Do I need to have taken CS180 to succeed in this course?</div>
+                <div class="faq-answer">
+                    <p>Yes, CS180 (Intro to Computer Science I) or an equivalent course is a prerequisite for CS281. You should be comfortable with basic programming concepts such as variables, control structures, functions, and simple data structures. If you have not taken CS180 but believe you have equivalent knowledge, please contact the instructor to discuss your situation.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">What is the attendance policy?</div>
+                <div class="faq-answer">
+                    <p>Regular attendance is highly encouraged and correlated with success in the course. While we don't have a strict attendance requirement for lectures, participation in discussions and in-class activities will contribute to your overall grade. Lab sessions have mandatory attendance, and unexcused absences will affect your lab grade.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="faq-category" data-category="assignments">
+            <h3>Assignments & Projects</h3>
+            
+            <div class="faq-item">
+                <div class="faq-question">How are assignments submitted?</div>
+                <div class="faq-answer">
+                    <p>All assignments and projects will be submitted through GitHub Classroom. You'll receive a GitHub repository link for each assignment, where you'll push your code. Make sure to follow the submission instructions carefully, as automated grading scripts will check your submissions. You'll find detailed submission instructions in each assignment document.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">What is the late submission policy?</div>
+                <div class="faq-answer">
+                    <p>Assignments submitted after the deadline will incur a 10% penalty per day for up to three days. After three days, submissions will not be accepted without prior approval. Each student receives three "late days" that can be used throughout the semester without penalty. To use a late day, you must notify the instructor before the assignment deadline.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Can I work with a partner on assignments?</div>
+                <div class="faq-answer">
+                    <p>Some assignments will be designated as partner assignments, while others must be completed individually. The assignment descriptions will clearly state whether collaboration is permitted. For individual assignments, you must write your own code. For partner assignments, you and your partner should submit a single solution with both names. Please review the course syllabus for our collaboration policy.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="faq-category" data-category="exams">
+            <h3>Exams & Grading</h3>
+            
+            <div class="faq-item">
+                <div class="faq-question">How many exams are there in this course?</div>
+                <div class="faq-answer">
+                    <p>The course has two midterm exams and one final exam. The midterms will cover material up to that point in the semester, while the final exam is comprehensive. Each midterm is worth 15% of your final grade, and the final exam is worth 25%.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">What is the format of the exams?</div>
+                <div class="faq-answer">
+                    <p>Exams will include a mix of multiple-choice questions, short answer questions, and coding problems. You'll be tested on theoretical concepts as well as practical application of those concepts. Coding problems will require you to write or analyze code by hand. No electronic devices are permitted during exams.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Is there a curve for this course?</div>
+                <div class="faq-answer">
+                    <p>The course uses absolute grading rather than curve-based grading. This means your grade is determined by your performance against set criteria, not by comparison to other students. The grade cutoffs are: A (90-100%), B (80-89%), C (70-79%), D (60-69%), and F (below 60%). Plus and minus grades may be assigned at the instructor's discretion.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="faq-category" data-category="technical">
+            <h3>Technical Issues</h3>
+            
+            <div class="faq-item">
+                <div class="faq-question">What software do I need for this course?</div>
+                <div class="faq-answer">
+                    <p>You'll need a C++ compiler (such as GCC, Clang, or Visual C++), a code editor or IDE (we recommend Visual Studio Code or CLion), and Git for version control. Detailed setup instructions are available on the Resources page. All the required software is free and available for Windows, macOS, and Linux.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Can I use the lab computers for assignments?</div>
+                <div class="faq-answer">
+                    <p>Yes, the department computer labs have all the necessary software installed. Lab hours are posted on the course website, and you can use the labs during open hours. However, for your convenience, we recommend setting up your personal computer with the required software as well.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">I'm having trouble with my code. Where can I get help?</div>
+                <div class="faq-answer">
+                    <p>There are several resources available:</p>
+                    <ul>
+                        <li>Office hours with the instructor and TAs</li>
+                        <li>The course discussion forum (monitored by the teaching staff)</li>
+                        <li>Peer tutoring in the CS Learning Center</li>
+                        <li>Online resources listed on the Resources page</li>
+                    </ul>
+                    <p>For debugging issues, please make sure to include specific error messages and a minimal example that demonstrates the problem.</p>
+                </div>
+            </div>
+        </section>
+        
+        <div class="contact-container">
+            <h3>Still Have Questions?</h3>
+            <p>If you don't see your
